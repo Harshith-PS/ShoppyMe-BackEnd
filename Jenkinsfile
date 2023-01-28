@@ -15,14 +15,22 @@ pipeline {
 		}
 		
 		stage('Build') {
-           
+           steps {
+				input('Do you want to proceed?')
+			}
         }
         
         stage('Test') {
+		steps {
+				input('Do you want to proceed?')
+			}
            
         }
         
         stage('Check') {
+		steps {
+				input('Do you want to proceed?')
+			}
             
         }      
 		
