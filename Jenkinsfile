@@ -16,7 +16,7 @@ pipeline {
 		
 		stage('Build') {
            steps {
-				input('Do you want to proceed?')
+				sh 'ls'
 			}
         }
         
