@@ -1,6 +1,9 @@
 
 pipeline {
 	agent any
+	tools {
+    maven 'maven-3.6.3' 
+  }
 	stages {
 		stage('One') {
 			steps {
@@ -10,7 +13,7 @@ pipeline {
 		
 		stage('Two') {
 			steps {
-				input('Do you want to proceed?')
+				echo 'Do you want to proceed?'
 			}
 		}
 		
