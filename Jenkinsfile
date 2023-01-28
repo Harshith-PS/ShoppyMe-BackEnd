@@ -14,22 +14,23 @@ pipeline {
 			}
 		}
 		
-		stage('Build') {
-           steps {
-				sh 'ls'
-			}
-        }
+		stage ('Build') {
+    git url: 'https://github.com/Harshith-PS/ShoppyMe-BackEnd.git'
+    withMaven {
+      sh "mvn clean install"
+    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
+  }
         
         stage('Test') {
 		steps {
-				input('Do you want to proceed?')
+				echo 'Stage Test'
 			}
            
         }
         
         stage('Check') {
 		steps {
-				input('Do you want to proceed?')
+				echo 'Stage Check'
 			}
             
         }      
